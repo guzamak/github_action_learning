@@ -22,7 +22,7 @@ jobs:
         uses: guzamak/github_action_learning
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
-          publisH_dir : ./
+          publish_dir : ./
 
       - name : Deploy Success
         run : echo "finish deploy ${{github.repository}}"
