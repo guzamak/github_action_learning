@@ -8,15 +8,21 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
 
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
       - name: Deploy to GitHub Pages
-        uses: guzamak/github_action_learning
+        uses: guzamak/actions-gh-pages@v4
         with:
-          folder: .   # deploy everything in the root (index.html must be here)
-          
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          publisH_dir : ./
+
       - name : Deploy Success
-        run : echo "finish deploy"
+        run : echo "finish deploy ${{github.repository}}"
