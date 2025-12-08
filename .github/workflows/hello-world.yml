@@ -17,3 +17,6 @@ jobs:
         uses: guzamak/github_action_learning
         with:
           folder: .   # deploy everything in the root (index.html must be here)
+          
+      - name : Deploy Success
+        run : echo "finish deploy"
