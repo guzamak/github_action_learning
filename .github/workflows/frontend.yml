@@ -19,11 +19,12 @@ jobs:
           node-version: '20'
       - name: GotoApp
         run : cd app
+      
       - name : Install dep
-        run : npm install
+        run : bun i
           
       - name : Build React app
-        run : npm run build
+        run : bun run build
 
       - name : Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v4
