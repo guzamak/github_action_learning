@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to GitHub Pages
-        uses: guzamak/actions-gh-pages@v4
+        uses: guzamak/github_action_learning
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publisH_dir : ./
