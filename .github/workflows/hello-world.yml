@@ -1,28 +1,30 @@
-# ชื่อ ci/cd
-name : My First Workflow
+name: My First Workflow
 
-#
-on :
-  push :
-    # 
+on:
+  push:
     branches:
       - main
-# 
-jobs :
-  build :
-    # deploy system
-    runs-on : ubuntu-lastest
-  
-    # ขั้นตอนของ workflows
-    steps :
-    # เอาโค้ดมาจาก repo
-    - name: Checkout 🛎️
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-    - name: Say Hello
-    # script to run in linux
-      run : echo "Hello, Github Action"
+      - name: Say Hello
+        run: echo "Hello, Github Action"
+
   deploy:
-      uses: guzamak/github-pages-deploy-action@v4
-      with:
-        folder: ./
+    runs-on: ubuntu-latest
+    needs: build   # ให้ deploy หลังจาก build เสร็จ
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: guzamak/github-pages-deploy-action@v4
+        with:
+          folder: .
